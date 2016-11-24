@@ -1,5 +1,5 @@
 /**
- * Location.js
+ * Source.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
@@ -8,16 +8,28 @@
 module.exports = {
 
   attributes: {
-
-    //Name of the location
     name:{
       type:'string',
-      required:true,
-      unique:true
+      unique:true,
+      required:true
     },
+
     description:{
       type:'string'
+    },
+
+    url:{
+      type:'string'
+    },
+
+    apikey:{
+      type:'string'
+    },
+
+    keys:{
+      type:'json'
     }
+
   }
 };
 

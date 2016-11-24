@@ -45,5 +45,8 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
- 'GET /sensor/status':'SensorController.status'
+ 'GET /sensor/request/:location/:id/:type':'SensorController.request',
+ 'GET /sensor/:id/request':'SensorController.request',
+ 'GET /source/:id/request':'SourceController.request',
+ //'GET /source/twitter':'SourceController.twitter'
 };

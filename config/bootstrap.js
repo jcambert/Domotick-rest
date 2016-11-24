@@ -16,5 +16,6 @@ module.exports.bootstrap = function(done) {
   // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
 
  // var mqtt_client=sails.config.mqtt.client;
+ PubSub.client().subscribe('/+/sensor/+/temperature/response');
   done();
 };

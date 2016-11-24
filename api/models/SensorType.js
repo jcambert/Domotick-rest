@@ -14,6 +14,9 @@ module.exports = {
         type:'string',
         required:true,
         unique:true
+      },
+      description:{
+        type:'string'
       }
   }
 };

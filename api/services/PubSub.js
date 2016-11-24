@@ -36,9 +36,11 @@ module.exports = {
     send:function(topic,message,options,callback){
         PubSub.client().publish(topic,message,options,callback);
     },
-
-    on:function(topic,callback){
+    subscribe:function(topic){
         PubSub.client().subscribe(topic);
+    },
+    on:function(topic,callback){
+        
         PubSub.client().on('message',function(topic,message){
             callback(topic,message);
         })
