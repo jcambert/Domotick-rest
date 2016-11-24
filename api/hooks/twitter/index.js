@@ -1,4 +1,3 @@
-// File api/hooks/tiwtter/index.js
 
 module.exports = function twitter(sails) {
 
@@ -247,6 +246,7 @@ module.exports = function twitter(sails) {
         configure: function(){
             this.configKey='Twitter';
             sails.config[this.configKey]={};
+            sails.config[this.configKey].version = '0.1',
             sails.config[this.configKey].rest_base='https://api.twitter.com/1.1';
             sails.config[this.configKey].stream_base='https://stream.twitter.com/1.1';
             sails.config[this.configKey].user_stream_base='https://userstream.twitter.com/1.1';

@@ -8,16 +8,25 @@
 module.exports = {
 
   attributes: {
+
+    //name of the source, must be unique
     name:{
       type:'string',
       unique:true,
       required:true
     },
+    
+    //type of the source [weather, twitter, google, ...]
+    type:{
+      type:'string'
+    },
 
+    //Description of the source
     description:{
       type:'string'
     },
 
+    //
     url:{
       type:'string'
     },

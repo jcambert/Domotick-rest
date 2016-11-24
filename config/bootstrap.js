@@ -15,7 +15,7 @@ module.exports.bootstrap = function(done) {
   // It's very important to trigger this callback method when you are finished
   // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
 
- // var mqtt_client=sails.config.mqtt.client;
- PubSub.client().subscribe('/+/sensor/+/temperature/response');
+ // Comment when testing Source Model
+ //PubSub.client().subscribe('/+/sensor/+/temperature/response');
   done();
 };
