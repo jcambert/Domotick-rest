@@ -1,0 +1,8 @@
+OpenWeather
+d288da12b207992dd796241cf56014b1
+
+Yahoo
+Client ID (Consumer Key)
+dj0yJmk9VWRpSTBxVkxrS0dDJmQ9WVdrOVpqTTVPRGsxTjJjbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD00YQ--
+Client Secret (Consumer Secret)
+2c057c46a7b0b762c66969b62ca190d8bd91e546

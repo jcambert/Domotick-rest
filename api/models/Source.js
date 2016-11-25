@@ -26,15 +26,6 @@ module.exports = {
       type:'string'
     },
 
-    //
-    url:{
-      type:'string'
-    },
-
-    apikey:{
-      type:'string'
-    },
-
     keys:{
       type:'json'
     }

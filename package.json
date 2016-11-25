@@ -6,6 +6,7 @@
   "keywords": [],
   "dependencies": {
     "ejs": "2.3.4",
+    "googleapis": "^14.2.0",
     "grunt": "0.4.5",
     "grunt-contrib-clean": "0.6.0",
     "grunt-contrib-coffee": "0.13.0",
@@ -20,10 +21,13 @@
     "grunt-sync": "0.2.4",
     "include-all": "~0.1.6",
     "mqtt": "^2.1.3",
+    "oauth": "^0.9.14",
     "rc": "1.0.1",
     "sails": "~0.12.3",
     "sails-disk": "~0.10.9",
-    "strformat": "0.0.7"
+    "strformat": "0.0.7",
+    "twitter-node-client": "https://github.com/jcambert/TwitterJSClient/tarball/master",
+    "yql": "^1.0.2"
   },
   "scripts": {
     "debug": "node debug app.js",
