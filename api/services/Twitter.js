@@ -8,6 +8,7 @@ module.exports = {
             null,
             'oauth2/token', 
             null);
+        oauth2.useAuthorizationHeaderforGET(true);
         oauth2.getOAuthAccessToken(
             '',
             {'grant_type':'client_credentials'},

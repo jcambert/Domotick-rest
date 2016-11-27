@@ -16,7 +16,7 @@ module.exports = function openweather(sails) {
         this.options = _.extend({},options);
         sails.log('OpenWeatherMap instance');sails.log(this.options);
         this.version = sails.config[self.configKey].version;
-        this.apis={byCityId:'?q={id}&lang={lang}&units={units}',byLatLon:'?lat={lat}&lon={lon}&lang={lang}&units={units}',byZip:'?zip={zip},{country}&lang={lang}&units={units}'};
+        this.apis={byCityName:'?q=city',  byCityId:'?q={id}&lang={lang}&units={units}',byLatLon:'?lat={lat}&lon={lon}&lang={lang}&units={units}',byZip:'?zip={zip}&lang={lang}&units={units}'};
         this.appid="&appid={appid}"
            
     }
@@ -29,12 +29,15 @@ module.exports = function openweather(sails) {
 
     OpenWeatherMap.prototype.formatUrl = function(options){
          var reqopt=_.extend({},this.options, options);
-        //sails.log('OpenWeatherMap Request');sails.log(this.options);sails.log(reqopt);
+        sails.log('OpenWeatherMap Request');sails.log(this.options);sails.log(reqopt);
 
         var url = sails.config[self.configKey].base+options.type+this.apis[options.query]+this.appid;
         url=strformat(url,reqopt);
         return url;
     }
+
+    
+
     return{
         configure: function(){
             sails.log('OpenWeatherMap configure');
@@ -56,7 +59,7 @@ module.exports = function openweather(sails) {
                     if(sails.config.environment == 'development' && (record==undefined || !record.keys)){
                         record={keys:{appid:'d288da12b207992dd796241cf56014b1'}};
                     }
-                    var options= _.extend({},{units:'metric'},(record==undefined?{}:record.keys))  ;
+                    var options= _.extend({},{units:'metric',lang:'fr'},(record==undefined?{}:record.keys))  ;
                     self.instance = new OpenWeatherMap(options);  
                     
                      // Finish initializing custom hook
@@ -68,12 +71,50 @@ module.exports = function openweather(sails) {
             
         },
         version:function(){return self.instance.version;},
+        exposeEndPoint:function(){
+            return{
+                byCityName:{
+                    params:{
+                        q:'City name and country code divided by comma, use ISO 3166 country codes'
+                    },
+                    description:'You can call by city name or city name and country code. API responds with a list of results that match a searching word.',
+                    example:'weather/byCityName?q=London,uk'
+                },
+                byCityId:{
+                    params:{
+                        id:'City ID'
+                    },
+                    description:'You can call by city ID. API responds with exact result.\n We recommend to call API by city ID to get unambiguous result for your city.',
+                    example:'weather/getById?id=delle'
+                },
+                byLatLon:{  
+                    params:{
+                        lat:'Latitud of city',
+                        lon:'Longitud of city'
+                    },
+                    description:'Get Weather by geographic coordinates',
+                    example:'weather/byLatLon?lat=35&lon=139'
+                },
+                byZip:{  
+                    params:{
+                        zip:'Zip of city could by zip,counrtry'
+                    },
+                    description:'Get Weather by zip code',
+                    example:'weather/?zip=94040,us'
+                }
+            }
+        },
+
+        byCityName:function(params){
+            if(!params.query)params.query='byCityName';
+            return self.instance.__request(params);
+        },
         byCityId:function(params){
             if(!params.query)params.query='byCityId';
             return self.instance.__request(params);
         },
         byLatLon:function(params){
-            if(!params.query)params.query='byCityId';
+            if(!params.query)params.query='byLatLon';
             return self.instance.__request(params);
         },
         byZip:function(params){

@@ -6,3 +6,10 @@ Client ID (Consumer Key)
 dj0yJmk9VWRpSTBxVkxrS0dDJmQ9WVdrOVpqTTVPRGsxTjJjbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD00YQ--
 Client Secret (Consumer Secret)
 2c057c46a7b0b762c66969b62ca190d8bd91e546
+
+
+twitter
+	Consumer Key (API Key)	T2FXYnUqgqLbNPfJJfga60ja7
+Consumer Secret (API Secret)	PVNR0cqbPmPN17ZD41NKuiCYEyNWe25hdJQrBTPUPj41lh0LRb
+	Access Token	563143978-EwMa2YbZQkh5juNAnNXZr78wX2rXF9guSZcnWgAw
+Access Token Secret	oKCGCYAVbegjY9tZHXRm6UsxCS80Pf7M1oUq3SpJTVSAS

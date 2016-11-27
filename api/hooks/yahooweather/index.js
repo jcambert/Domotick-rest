@@ -49,6 +49,20 @@ module.exports = function yahooweather(sails){
            
             
         },
+        exposeEndPoint:function(){
+            return{
+
+                byCityId:{
+                    params:{
+                        id:'City ID',
+                        units:'Units either c(elcius),f(arenheit)'
+                    },
+                    description:'You can call by city ID. API responds with exact result.\n We recommend to call API by city ID to get unambiguous result for your city.',
+                    example:'weather/getById?id=delle'
+                },
+
+            }
+        },
         version:function(){return self.instance.version;},
         byCityId:function(params){
             if(!params.query)params.query='byCityId';

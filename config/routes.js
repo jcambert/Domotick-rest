@@ -35,7 +35,9 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
-
+  '/admin' : {
+    view: 'admin'
+  },
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
@@ -45,11 +47,16 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
+ 'GET /models':'ModelsController.get',
+ 
  'GET /sensor/request/:location/:id/:type':'SensorController.request',
  'GET /sensor/:id/request':'SensorController.request',
 
+ 'GET /source/exposed' : 'SourceController.exposed',
+ 'GET /source/:source/version' : 'SourceController.version',
+ 'GET /source/:source/exposed' : 'SourceController.exposed',
  'GET /source/:source/:type/:query?' : 'SourceController.request',
- 'GET /twitterkeys' : 'SourceController.twitterkeys' 
+ //'GET /twitterkeys' : 'SourceController.twitterkeys' 
  //'GET /source/:source/version' : 'SourceController.version'
  //'GET /source/:id/request':'SourceController.request',
  //'GET /source/twitter':'SourceController.twitter'
