@@ -40,7 +40,7 @@
     .controller('HomeListController',['$log', '$scope','models', function($log,$scope,models){
         $log.log('HomeListController');
         $scope.models=models.data;
-        $scope.hidden=false;
+        
         $scope.slideToggle=false;
     }])
     .service('ModelService',[ '$http',function($http){
